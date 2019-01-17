@@ -20,9 +20,13 @@ namespace :db
     Student.create_table
   end
   
-  desc 'adds dummy data to database'
+  desc 'seed the database with some dummy data'
   task :seed do 
-    
+    require_relative './db/seeds.rb'
+  end
 end
 
-
+desc 'drop into the Pry console'
+task :console => :environment do 
+  Pry.start 
+end
